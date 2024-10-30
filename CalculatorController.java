@@ -22,36 +22,42 @@ public class CalculatorController {
     }
 
     private void handleOperation(ActionEvent e) {
-        try {
-            double firstNumber = view.getFirstNumber();
-            double secondNumber = view.getSecondNumber();
-            double result;
+        if (e.getSource() == view.getClearButton()) {
+            view.clearFields();
+            return;
+        }
+        else if (e.getSource() == view.getExitButton()) {
+            System.exit(0);
+            return;
+        }
+        else {
+            try {
+                double firstNumber = view.getFirstNumber();
+                double secondNumber = view.getSecondNumber();
+                double result;
 
-            if (e.getSource() == view.getAddButton()) {
-                result = model.add(firstNumber, secondNumber);
-            } else if (e.getSource() == view.getSubtractButton()) {
-                result = model.subtract(firstNumber, secondNumber);
-            } else if (e.getSource() == view.getMultiplyButton()) {
-                result = model.multiply(firstNumber, secondNumber);
-            } else if (e.getSource() == view.getDivideButton()) {
-                result = model.divide(firstNumber, secondNumber);
-            } else if (e.getSource() == view.getPowerButton()) {
-                result = model.power(firstNumber, secondNumber);
-            } else if (e.getSource() == view.getClearButton()) {
-                view.clearFields();
-                return;
-            } else if (e.getSource() == view.getExitButton()) {
-                System.exit(0);
-                return;
-            } else {
-                throw new UnsupportedOperationException("Неизвестная операция");
+                if (e.getSource() == view.getAddButton()) {
+                    result = model.add(firstNumber, secondNumber);
+                } else if (e.getSource() == view.getSubtractButton()) {
+                    result = model.subtract(firstNumber, secondNumber);
+                } else if (e.getSource() == view.getMultiplyButton()) {
+                    result = model.multiply(firstNumber, secondNumber);
+                } else if (e.getSource() == view.getDivideButton()) {
+                    result = model.divide(firstNumber, secondNumber);
+                } else if (e.getSource() == view.getPowerButton()) {
+                    result = model.power(firstNumber, secondNumber);
+                } /*else if (e.getSource() == view.getExclamationButton) {
+                result = model.factorial(firstNumber);
+            }*/ else {
+                    throw new UnsupportedOperationException("Неизвестная операция");
+                }
+
+                view.setResult(String.valueOf(result));
+            } catch (NumberFormatException ex) {
+                view.showError("Введите корректные числа.");
+            } catch (ArithmeticException ex) {
+                view.showError(ex.getMessage());
             }
-
-            view.setResult(String.valueOf(result));
-        } catch (NumberFormatException ex) {
-            view.showError("Введите корректные числа.");
-        } catch (ArithmeticException ex) {
-            view.showError(ex.getMessage());
         }
     }
 }

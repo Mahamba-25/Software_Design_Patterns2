@@ -22,6 +22,13 @@ public class CalculatorModel {
         return a / b;
     }
 
+   /* public double factorial(int a) {
+        if (a == 0) {
+            return 1;
+        }
+        return a * factorial(a - 1);
+    }*/
+
     public double power(double base, double exponent) {
         return Math.pow(base, exponent);
     }

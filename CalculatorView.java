@@ -14,6 +14,7 @@ public class CalculatorView extends JFrame {
     private JButton multiplyButton = new JButton("*");
     private JButton divideButton = new JButton("/");
     private JButton powerButton = new JButton("^");
+    /*private JButton exclamationButton = new JButton("!");*/
     private JButton clearButton = new JButton("Очистить");
     private JButton exitButton = new JButton("Выйти");
     private JLabel resultLabel = new JLabel("Результат: ");
@@ -29,6 +30,7 @@ public class CalculatorView extends JFrame {
         multiplyButton.setFont(font);
         divideButton.setFont(font);
         powerButton.setFont(font);
+        /*exclamationButton.setFont(font);*/
         clearButton.setFont(font);
         exitButton.setFont(font);
 
@@ -49,6 +51,7 @@ public class CalculatorView extends JFrame {
         buttonPanel.add(multiplyButton);
         buttonPanel.add(divideButton);
         buttonPanel.add(powerButton);
+        /*buttonPanel.add(exclamationButton);*/
 
         JPanel controlPanel = new JPanel();
         controlPanel.add(clearButton);
@@ -92,6 +95,7 @@ public class CalculatorView extends JFrame {
         multiplyButton.addActionListener(listener);
         divideButton.addActionListener(listener);
         powerButton.addActionListener(listener);
+        /*exclamationButton.addActionListener(listener);*/
         clearButton.addActionListener(listener);
         exitButton.addActionListener(listener);
     }
@@ -101,6 +105,7 @@ public class CalculatorView extends JFrame {
     public JButton getMultiplyButton() { return multiplyButton; }
     public JButton getDivideButton() { return divideButton; }
     public JButton getPowerButton() { return powerButton; }
+    /*public JButton getExclamationButton() { return exclamationButton; }*/
     public JButton getClearButton() { return clearButton; }
     public JButton getExitButton() { return exitButton; }
 }
